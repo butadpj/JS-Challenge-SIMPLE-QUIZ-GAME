@@ -10,6 +10,7 @@
     --b: rgb(128, 81, 43);
     --r: rgb(206, 69, 65); 
     --chalk: 'Walter Turncoat', cursive;
+    --hover:  rgba(128, 81, 43, 0.486);
 
 }
 
@@ -78,7 +79,8 @@ body {
     width: 20rem;
     height: 20rem;
     border-radius: 100%;
-    border: 1rem solid var(--b);
+    border: 1rem solid var(--lg);
+    user-select: none;
 }
 
 .countdown p {
@@ -87,15 +89,11 @@ body {
     font-family: var(--chalk);
     color: var(--lg);
     line-height: 17rem;
-    
 }
-
-
 
 .quiz-wrapper {
     transition: 2s;
 }
-
 
 .quiz-wrapper::before {
     content: '';
@@ -121,21 +119,23 @@ body {
 
 .score {
     position: absolute;
-    left: 10%;
+    left: 20%;
     top: 20%;
-    transform: translateX(-50%);    
+    transform: translate(-50%, -50%);
     font-size: 1.5rem;
     color: var(--w);
     margin-top: 0.5rem;
+    z-index: 6;
 }
 
 .timer {
     position: absolute;
     left: 50%;
     top: 20%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     font-size: 2rem;
     color: var(--lg);
+    z-index: 6;
 }
 
 .question {
@@ -145,6 +145,7 @@ body {
     text-align: center;
     color: var(--w);
     margin: 0rem 2rem;
+    font-family: var(--chalk);
 }
 
 .choices {
@@ -160,10 +161,11 @@ body {
     color: var(--w);
     font-size: 1.5rem;
     border-radius: 5%;
-    padding: 2rem;
+    padding: 1rem;
     margin: 2rem;
     cursor: pointer;
     user-select: none;
+    font-family: var(--chalk);
 }
 
 
@@ -173,10 +175,86 @@ body {
 }
 
 .card {
+    width: 20rem;
     z-index: 1;
     position: absolute !important;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     transition: 1s;
+}
+
+.card-body .card-title, .card-text{
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .loader-container {
+        top: 70%;
+    }
+
+    .countdown {
+        width: 10rem;
+        height: 10rem;
+        border-color: var(--lg);
+    }
+
+    .countdown p {
+        font-size: 7rem;
+        line-height: 7rem;
+    }
+
+    .timer {
+        background-color: var(--dg);
+        position: absolute;
+        top: 6%;
+        left: 70%;
+        color: var(--w);
+        font-size: 1.3rem;
+        padding: 0.5rem;
+        border-radius: 10%;
+    }
+
+    .score {
+        position: absolute;
+        left: 30%;
+        top: 5%;
+        color: var(--dg);
+    }
+
+
+    .quiz {
+        height: auto;
+        margin: auto;
+        margin-top: 3rem;
+    }   
+    
+    .question {
+        position: static;
+        display: block;
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+
+    .choices {
+        display: block;
+    }
+
+    .choices .A, .B, .C, .D {
+        background-color: var(--b);
+        color: var(--w);
+        font-size: 0.8rem;
+        border-radius: 5%;
+        padding: 0.5rem;
+        width: 10rem;
+        cursor: pointer;
+        user-select: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    
+
 }

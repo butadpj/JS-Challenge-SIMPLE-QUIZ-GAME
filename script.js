@@ -85,9 +85,9 @@ window.addEventListener('load', function(){
             const restartBtn = document.querySelector('.card .card-body .restart')
             
             const getScore = document.querySelector('.score span')
-            let score = (Number(getScore.innerHTML))
+            let score = 0
             const getTimer = document.querySelector('.timer span')
-            let timer = (Number(getTimer.innerHTML))
+            let timer = 10
             
             
             function resetTimer() {
@@ -127,7 +127,7 @@ window.addEventListener('load', function(){
             }
             showQuiz()
             
-            document.addEventListener('click', function(e){
+            document.addEventListener('click', function(e) {
                 for (let i = 0; i < letters.length; i++) {
                     if (e.target.classList.contains(letters[i])) {
                         let selectedAnswer = e.target.innerHTML.substring(3).trim()
@@ -150,6 +150,22 @@ window.addEventListener('load', function(){
                                 resetTimer()
                             }, 500)
                         }
+                    }
+                }  
+            })  
+            
+            document.addEventListener('mouseover', function(e) {
+                for (let i = 0; i < letters.length; i++) {
+                    if (e.target.classList.contains(letters[i])) {
+                        e.target.style.backgroundColor = 'var(--hover)'
+                    }
+                }  
+            })
+
+            document.addEventListener('mouseout', function(e) {
+                for (let i = 0; i < letters.length; i++) {
+                    if (e.target.classList.contains(letters[i])) {
+                        e.target.style.backgroundColor = 'var(--b)'
                     }
                 }  
             })
